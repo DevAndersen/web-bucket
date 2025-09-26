@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta http-equiv="refresh_" content="1">
+        <style>
+            body
+            {
+                background-color: #999;
+            }
+
+            .container
+            {
+                display: flex;
+            }
+
+            body:has( input[type="radio"]:checked)
+            {
+                &:has([data-color="green"]:checked)
+                {
+                    --base: green;
+                }
+                &:has([data-color="red"]:checked)
+                {
+                    --base: red;
+                }
+                &:has([data-color="blue"]:checked)
+                {
+                    --base: blue;
+                }
+                &:has([data-color="yellow"]:checked)
+                {
+                    --base: yellow;
+                }
+            }
+
+            body::after
+            {
+                content: var(--base);
+            }
+
+            .box
+            {
+                height: 300px;
+                width: 32px;
+                
+                --color: color-mix(
+                    in oklab,
+                    var(--base) var(--percentage),
+                    var(--from));
+
+                background: linear-gradient(
+                    to right,
+                    color-mix(in oklab, #000 10%, var(--color)),
+                    var(--color) 5px);
+            }
+
+            .box:first-child
+            {
+                background: var(--color);
+            }
+        </style>
+    </head>
+    <body>
+
+        <div>
+            <div>
+                <input id="radio-green" type="radio" name="colors" data-color="green" />
+                <label for="radio-green">Green</label>
+            </div>
+            <div>
+                <input id="radio-green" type="radio" name="colors" data-color="red" />
+                <label for="radio-green">Red</label>
+            </div>
+            <div>
+                <input id="radio-green" type="radio" name="colors" data-color="blue" />
+                <label for="radio-green">Blue</label>
+            </div>
+            </div>
+            <div>
+                <input id="radio-green" type="radio" name="colors" data-color="yellow" />
+                <label for="radio-green">Yellow</label>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="box" style="--from: #fff; --percentage: 10%"></div>
+            <div class="box" style="--from: #fff; --percentage: 30%"></div>
+            <div class="box" style="--from: #fff; --percentage: 50%"></div>
+            <div class="box" style="--from: #fff; --percentage: 70%"></div>
+            <div class="box" style="--from: #fff; --percentage: 100%"></div>
+            <div class="box" style="--from: #000; --percentage: 70%;"></div>
+            <div class="box" style="--from: #000; --percentage: 50%;"></div>
+            <div class="box" style="--from: #000; --percentage: 30%;"></div>
+            <div class="box" style="--from: #000; --percentage: 10%;"></div>
+        </div>
+
+    </body>
+</html>
