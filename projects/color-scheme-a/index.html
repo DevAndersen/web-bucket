@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <!-- <meta http-equiv="refresh" content="1"> -->
+        <style>
+
+            .test-block
+            {
+                width: 32px;
+                height: 32px;
+                border: 1px solid #8888;
+                background-color: var(--color);
+            }
+            
+            .dynamic-color
+            {
+                --color: color-mix(in srgb, var(--color-hue) var(--color-hue-percentage), var(--color-hue-target));
+            }
+
+            .hue-blue
+            {
+                --color-hue: #0078d4;
+                --color-hue-target: #fff;
+                --color-hue-percentage: 100%;
+            }
+
+            .hue-green
+            {
+                --color-hue: #31b92c;
+                --color-hue-target: #fff;
+                --color-hue-percentage: 100%;
+            }
+
+            .hue-red
+            {
+                --color-hue: #d81e1e;
+                --color-hue-target: #fff;
+                --color-hue-percentage: 100%;
+            }
+
+            .hue-yellow
+            {
+                --color-hue: #dbca32;
+                --color-hue-target: #fff;
+                --color-hue-percentage: 100%;
+            }
+
+            .hue-purple
+            {
+                --color-hue: #be33da;
+                --color-hue-target: #fff;
+                --color-hue-percentage: 100%;
+            }
+
+            .hue-25
+            {
+                --color-hue-percentage: 25%;
+            }
+
+            .hue-50
+            {
+                --color-hue-percentage: 50%;
+            }
+
+            .hue-75
+            {
+                --color-hue-percentage: 75%;
+            }
+
+            .hue-dark
+            {
+                --color-hue-target: #000;
+            }
+
+            button
+            {
+                cursor: pointer;
+                color: #fff;
+                border: none;
+                border-radius: 0.4rem;
+                padding: 0.4rem 0.8rem;
+                background-color: var(--color);
+            }
+
+        </style>
+
+        <script>
+
+            function doWork()
+            {
+                var percentages = [25, 50, 70];
+                var hues = ["red", "yellow", "green", "blue", "purple"];
+
+                hues.forEach((hue) => {
+                    percentages.forEach((percentage) => {
+                        addButton(hue, percentage);
+                    });
+                });
+            }
+
+            function addButton(hue, percentage)
+            {
+                    var output = document.getElementById("output");
+
+                    var newElement = document.createElement("button");
+                    newElement.classList.add("dynamic-color", `hue-${hue}`, `hue-${percentage}`);
+                    newElement.innerHTML = "Button";
+                    document.getElementById("output").appendChild(newElement);
+            }
+
+        </script>
+    </head>
+    <body onload="doWork()" style="display: flex; flex-direction: column; gap: 8px">
+        
+        <div id="output" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px">
+        </div>
+
+        <div style="display: flex">
+            <div class="test-block dynamic-color hue-red hue-25" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-red hue-50" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-red hue-75" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-red" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-red hue-75 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-red hue-50 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-red hue-25 hue-dark" style="--hue-value: 25%"></div>
+        </div>
+        
+        <div style="display: flex">
+            <div class="test-block dynamic-color hue-yellow hue-25" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-yellow hue-50" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-yellow hue-75" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-yellow" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-yellow hue-75 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-yellow hue-50 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-yellow hue-25 hue-dark" style="--hue-value: 25%"></div>
+        </div>
+        
+        <div style="display: flex">
+            <div class="test-block dynamic-color hue-green hue-25" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-green hue-50" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-green hue-75" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-green" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-green hue-75 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-green hue-50 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-green hue-25 hue-dark" style="--hue-value: 25%"></div>
+        </div>
+        
+        <div style="display: flex">
+            <div class="test-block dynamic-color hue-blue hue-25" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-blue hue-50" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-blue hue-75" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-blue" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-blue hue-75 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-blue hue-50 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-blue hue-25 hue-dark" style="--hue-value: 25%"></div>
+        </div>
+        
+        <div style="display: flex">
+            <div class="test-block dynamic-color hue-purple hue-25" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-purple hue-50" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-purple hue-75" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-purple" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-purple hue-75 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-purple hue-50 hue-dark" style="--hue-value: 25%"></div>
+            <div class="test-block dynamic-color hue-purple hue-25 hue-dark" style="--hue-value: 25%"></div>
+        </div>
+
+    </body>
+</html>
