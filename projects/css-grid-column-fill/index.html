@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <meta http-equiv="refresh_" content="1">
+        <style>
+            body
+            {
+                background-color: #999;
+            }
+
+            .grid
+            {
+                padding-bottom: 64px;
+                display: grid;
+                gap: 8px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .box
+            {
+                border: 2px solid #000;
+                height: 32px;
+            }
+
+            .box:last-child:nth-child(odd)
+            {
+                background-color: #99f;
+                grid-column: 1 / -1;
+            }
+
+            .box:last-child:nth-child(odd):after
+            {
+                content: "I should fill the row!"
+            }
+            
+            .inner-big
+            {
+            }
+            
+            .box:has( .inner-big)
+            {
+                grid-column: 1 / -1;
+                border: 2px solid #909;
+            }
+
+            .box:has( .inner-big):after
+            {
+                content: "I should also fill the row!"
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="grid">
+
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+
+        </div>
+
+        <div class="grid">
+
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner-big"></div>
+            </div>
+
+        </div>
+
+        <div class="grid">
+
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner-big"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+
+        </div>
+
+        <div class="grid">
+
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+            <div class="box">
+                <div class="inner"></div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
