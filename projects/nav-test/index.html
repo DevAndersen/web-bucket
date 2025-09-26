@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <meta http-equiv="refresh_" content="1">
+        <style>
+            body
+            {
+                background-color: #333;
+                background-attachment: fixed;
+                margin: 0;
+            }
+
+            .nav-bar
+            {
+                background-color: #0008;
+                backdrop-filter: blur(4px);
+                padding: 4px;
+                border-radius: 8px;
+                width: fit-content;
+                margin: auto;
+                display: grid;
+                grid-auto-columns: minmax(0, 1fr);
+                grid-auto-flow: column;
+            }
+
+            .nav-item
+            {
+                position: relative;
+                padding: 8px 16px;
+                color: #fff8;
+                text-align: center;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 18;
+                transition: color 0.2s;
+                cursor: pointer;
+            }
+
+            .nav-item::after
+            {
+                position: absolute;
+                content: ' ';
+                inset: calc(100% - 3px) 16px 0 16px;
+                background-color: #333;
+                border-radius: 6px;
+                transition: inset 0.2s;
+                z-index: -4;
+            }
+
+            .nav-item:hover,
+            .nav-bar:not(:has(> .nav-item:not([data-active]):hover)) > .nav-item[data-active]
+            {
+                color: #fff;
+                
+                &::after
+                {
+                    inset: 2px;
+                }
+            }
+
+            .nav-area
+            {
+                position: fixed;
+                width: 100%;
+                translate: 0 -100%;
+                transition: translate 0.4s;
+                padding-top: 8px;
+            }
+
+            .nav-area::after
+            {
+                position: absolute;
+                content: ' ';
+                inset: 0;
+                bottom: -32px;
+                z-index: -1;
+                transition: bottom 0.4s;
+            }
+
+            .nav-area:hover
+            {
+                translate: 0 0;
+
+                &::after
+                {
+                    bottom: 0;
+                }
+            }
+
+            body:has( input[id="show-area"]:checked) .nav-area::after
+            {
+                background-color: #f0f4;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="nav-area">
+            <div class="nav-bar">
+                <div class="nav-item" data-active>Home</div>
+                <div class="nav-item">Example one</div>
+                <div class="nav-item">About</div>
+            </div>
+        </div>
+
+        <div>Content</div>
+
+        <div style="position: absolute; inset: 20%;">
+            <input id="show-area" type="checkbox" />
+            <label for="show-area">Show area</label>
+        </div>
+
+    </body>
+</html>
