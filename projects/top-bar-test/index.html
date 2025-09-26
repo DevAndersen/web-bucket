@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <style>
+            
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Top bar */
+
+            #topbar {
+                transition: padding 0.5s;
+                position: relative;
+                top: 0;
+                background-color: #444;
+            }
+
+            #topbar:has(#keepOpen:checked),
+            #topbar:hover {
+                padding-top: 40px;
+                position: relative;
+            }
+
+            #topbar-content {
+                position: absolute;
+                display: flex;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                border-bottom: 1px solid #8888;
+                padding: 0 4px;
+            }
+
+            .topbar-button {
+                padding: 5px;
+                border: 1px solid #8888;
+                background-color: #aaa;
+                border-bottom-width: 0;
+                border-radius: 5px 5px 0 0;
+                margin-right: 10px;
+                width: 60px;
+                text-align: center;
+            }
+
+            #topbar-padding {
+                position: absolute;
+                display: block;
+                left: 0;
+                right: 0;
+                height: 20px;
+            }
+
+            /* Content */
+
+            #page-content-wrapper {
+                height: 100%;
+            }
+
+            #view-container {
+                height: 100%;
+                display: grid;
+                grid-template-columns: 80px auto 80px;
+                grid-template-rows: auto 80px;
+            }
+
+            #view-container:not([data-showpanels="true"]) {
+                grid-template-columns: 0 auto 0;
+                grid-template-rows: auto 0;
+            }
+
+            #view-container > *:not([data-center]) {
+                background-color: #4448;
+            }
+
+            #view-container:not([data-showpanels="true"]) > *:not([data-center]) {
+                visibility: collapse;
+                display: none;
+            }
+
+            .scroll-panel {
+                overflow-y: scroll;
+                flex-grow: 1;
+            }
+
+            *:has(> .scroll-panel) {
+                overflow: hidden;
+            }
+
+        </style>
+    </head>
+    <body style="display: flex; flex-direction: column; height: 100%">
+        
+        <div id="topbar">
+            <div id="topbar-content">
+                <div class="topbar-button">A</div>
+                <div class="topbar-button">B</div>
+                <div class="topbar-button">C</div>
+                <div class="topbar-button">D</div>
+                <div class="topbar-button">E</div>
+                <input id="keepOpen" type="checkbox" />
+            </div>
+            <div id="topbar-padding"></div>
+        </div>
+        <div id="page-content-wrapper" style="overflow: hidden">
+            
+            <div id="view-container" data-showpanels="true">
+                <div></div>
+                <div data-center>A</div>
+
+                <div style="display: flex; flex-direction: column">
+
+                    <div>Top</div>
+                    <div class="scroll-panel">
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                        <div>A</div>
+                    </div>
+                    <div>Bottom</div>
+                </div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
