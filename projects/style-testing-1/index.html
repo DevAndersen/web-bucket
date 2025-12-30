@@ -100,8 +100,8 @@
             .color-select-area
             {
                 padding: 12px;
-                position: absolute;
                 display: flex;
+                justify-content: center;
                 gap: 10px;
             }
 
@@ -109,18 +109,38 @@
             {
                 &:has([data-color-name="red"]:checked)
                 {
+                    --bg-primary: #c74e69;
+                --bg-secondary: hsl(from var(--bg-primary) calc(H + 25) S L);
+                }
+                &:has([data-color-name="orange"]:checked)
+                {
                     --bg-primary: #c74e4e;
                 --bg-secondary: hsl(from var(--bg-primary) calc(H + 25) S L);
+                }
+                &:has([data-color-name="yellow"]:checked)
+                {
+                    --bg-primary: #c7924e;
+                --bg-secondary: hsl(from var(--bg-primary) calc(H + 15) S L);
                 }
                 &:has([data-color-name="green"]:checked)
                 {
                     --bg-primary: #3c933a;
-                --bg-secondary: hsl(from var(--bg-primary) calc(H + 25) S L);
+                --bg-secondary: hsl(from var(--bg-primary) calc(H + 45) S L);
                 }
-                &:has([data-color-name="blue"]:checked)
+                &:has([data-color-name="lightblue"]:checked)
                 {
                     --bg-primary: #4e7ac7;
                 --bg-secondary: hsl(from var(--bg-primary) calc(H - 35) S L);
+                }
+                &:has([data-color-name="blue"]:checked)
+                {
+                    --bg-primary: #5e4ec7;
+                --bg-secondary: hsl(from var(--bg-primary) calc(H - 45) S L);
+                }
+                &:has([data-color-name="purple"]:checked)
+                {
+                    --bg-primary: #af4ec7;
+                --bg-secondary: hsl(from var(--bg-primary) calc(H - 25) S L);
                 }
             }
 
@@ -137,9 +157,13 @@
     <body>
 
         <div class="color-select-area">
-            <input type="radio" name="color-select" class="color-select" data-color="#c74e4e" data-color-name="red" checked />
+            <input type="radio" name="color-select" class="color-select" data-color="#c74e69" data-color-name="red" />
+            <input type="radio" name="color-select" class="color-select" data-color="#c74e4e" data-color-name="orange" checked />
+            <input type="radio" name="color-select" class="color-select" data-color="#c7924e" data-color-name="yellow" />
             <input type="radio" name="color-select" class="color-select" data-color="#3c933a" data-color-name="green" />
-            <input type="radio" name="color-select" class="color-select" data-color="#4e7ac7" data-color-name="blue" />
+            <input type="radio" name="color-select" class="color-select" data-color="#4e7ac7" data-color-name="lightblue" />
+            <input type="radio" name="color-select" class="color-select" data-color="#5e4ec7" data-color-name="blue" />
+            <input type="radio" name="color-select" class="color-select" data-color="#af4ec7" data-color-name="purple" />
         </div>
 
         <div class="container">
