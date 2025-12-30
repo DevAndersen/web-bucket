@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <style>
+
+            :root
+            {
+                --fg-primary: #eee;
+                --fg-secondary: rgb(from var(--fg-primary) r g b / 0.65);
+
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            html,body
+            {
+                height: 100%;
+                margin: 0;
+            }
+
+            body
+            {
+                background: linear-gradient(
+                    310deg,
+                    var(--bg-primary) 0%,
+                    var(--bg-secondary) 100%);
+            }
+
+            .heading
+            {
+                color: var(--fg-primary);
+                font-size: 64px;
+                text-align: center;
+                font-weight: light;
+            }
+
+            .sub-heading
+            {
+                color: var(--fg-secondary);
+                font-size: 48px;
+                text-align: center;
+                font-weight: light;
+            }
+
+            .container
+            {
+                padding: 24px;
+            }
+
+            .button
+            {
+                border: none;
+                padding: 10px 30px;
+                border-radius: 1000px;
+
+                font-size: 16px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: 600;
+
+                color: var(--bg-secondary);
+                background-color: var(--fg-secondary);
+
+                cursor: pointer;
+
+                transition: background-color 0.3s;
+            }
+
+            .button:hover
+            {
+                background-color: var(--fg-primary);
+            }
+
+            .shading-faint
+            {
+                box-shadow: inset 0px 1px #ffffff22,
+                            inset 0px 2px #ffffff11,
+                            inset 0px -0.5px #00000022,
+                            inset 0px -1px #00000011,
+                            0px 2px 2px #00000011;
+            }
+
+            .color-select
+            {
+                appearance: none;
+                outline: 6px solid var(--fg-secondary);
+                border-radius: 8px;
+                display: block;
+                padding: 4px;
+                width: 28px;
+                aspect-ratio: 1/1;
+
+                background-color: attr(data-color type(<color>));
+            }
+
+            .color-select:checked
+            {
+                outline: 6px solid var(--fg-primary);
+            }
+
+            .color-select-area
+            {
+                padding: 12px;
+                position: absolute;
+                display: flex;
+                gap: 10px;
+            }
+
+            body:has( input[type="radio"]:checked)
+            {
+                &:has([data-color-name="red"]:checked)
+                {
+                    --bg-primary: #c74e4e;
+                --bg-secondary: hsl(from var(--bg-primary) calc(H + 25) S L);
+                }
+                &:has([data-color-name="green"]:checked)
+                {
+                    --bg-primary: #3c933a;
+                --bg-secondary: hsl(from var(--bg-primary) calc(H + 25) S L);
+                }
+                &:has([data-color-name="blue"]:checked)
+                {
+                    --bg-primary: #4e7ac7;
+                --bg-secondary: hsl(from var(--bg-primary) calc(H - 35) S L);
+                }
+            }
+
+            .vertical-center
+            {
+                padding-top: 32px;
+                display: flex;
+                justify-content: center;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="color-select-area">
+            <input type="radio" name="color-select" class="color-select" data-color="#c74e4e" data-color-name="red" checked />
+            <input type="radio" name="color-select" class="color-select" data-color="#3c933a" data-color-name="green" />
+            <input type="radio" name="color-select" class="color-select" data-color="#4e7ac7" data-color-name="blue" />
+        </div>
+
+        <div class="container">
+        
+            <div class="heading">Heading</div>
+
+            <div class="sub-heading">Sub-heading</div>
+
+            <div class="vertical-center">
+                <button class="button">Click me</button>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
