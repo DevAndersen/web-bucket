@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta http-equiv="refresh_" content="1">
+        <style>
+            
+            body
+            {
+                background-color: #999;
+            }
+
+            a
+            {
+                font-size: 24px;
+                padding: 4px
+            }
+
+            nav
+            {
+                a.active,
+                a:hover
+                {
+                    anchor-name: --active;
+                }
+
+                &:has(a:hover) > a:not(:hover).active
+                {
+                    anchor-name: none;
+                }
+            }
+
+            .nav-active-indicator
+            {
+                position-anchor: --active;
+                top: anchor(top);
+                right: anchor(right);
+                bottom: anchor(bottom);
+                left: anchor(left);
+                position: absolute;
+                z-index: -1;
+
+                border-radius: 6px;
+                background-color: #fff;
+
+                transition: inset 0.4s ease-in-out;
+            }
+
+        </style>
+        <script>
+            function onClick(element)
+            {
+                // Remove "active" class from all elements.
+                Array.from(document.querySelectorAll('.active')).forEach(
+                    (el) => el.classList.remove('active')
+                );
+                
+                // Remove "active" class to the clicked element.
+                element.classList.add("active");
+            }
+        </script>   
+    </head>
+    <body>
+
+        <div>
+            <nav>
+                <a href="#" onclick="onClick(this)" class="active">One</a>
+                <a href="#" onclick="onClick(this)">Two</a>
+                <a href="#" onclick="onClick(this)">Three</a>
+                <div class="nav-active-indicator"></div>
+            </nav>
+        </div>
+        
+    </body>
+</html>
