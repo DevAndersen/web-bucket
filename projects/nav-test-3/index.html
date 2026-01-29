@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta http-equiv="refresh_" content="1">
+        <style>
+            body
+            {
+                background-color: #999;
+            }
+
+            .site-nav
+            {
+                display: flex;
+                margin-inline: auto;
+                width: min-content;
+                padding: 8px 4px;
+
+                background-color: #44558888;
+                border: 1px solid #44558888;
+                border-radius: 8px;
+
+                input[type="radio"]
+                {
+                    display: none;
+                }
+
+                &:not(:has(a:hover)) input[type="radio"]:checked + label,
+                a:hover label
+                {
+                    anchor-name: --nav-anchor;
+                }
+
+                .indicator
+                {
+                    background-color: #0f0;
+                    border-radius: 6px;
+
+                    z-index: -1;
+                    
+                    position: absolute;
+                    position-anchor: --nav-anchor;
+                    top: anchor(top);
+                    right: anchor(right);
+                    bottom: anchor(bottom);
+                    left: anchor(left);
+
+                    transition: inset 0.4s ease-in-out;
+                }
+
+                a
+                {
+                    color: #000;
+                    text-decoration: none;
+                }
+
+                label
+                {
+                    padding: 4px;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <nav class="site-nav">
+            <a href="#">
+                <input type="radio" name="nav" id="nav-1" checked />
+                <label for="nav-1">Home</label>
+            </a>
+            <a href="#">
+                <input type="radio" name="nav" id="nav-2" />
+                <label for="nav-2">Contact</label>
+            </a>
+            <a href="#">
+                <input type="radio" name="nav" id="nav-3" />
+                <label for="nav-3">About</label>
+            </a>
+            <div class="indicator"></div>
+        </nav>
+    </body>
+</html>
