@@ -5,14 +5,17 @@
             body
             {
                 background-color: #999;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
             }
 
             .parent
             {
-                display: inline-block;
                 border: 1px solid #008;
                 width: 120px;
                 height: 120px;
+                anchor-scope: --parent;
                 anchor-name: --parent;
             }
 
@@ -41,6 +44,11 @@
         </style>
     </head>
     <body>
+
+        <div class="parent">
+            <div class="child child-top">Top</div>
+            <div class="child child-bottom">Bottom</div>
+        </div>
 
         <div class="parent">
             <div class="child child-top">Top</div>
