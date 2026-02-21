@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta http-equiv="refresh_" content="1">
+        <style>
+
+            body
+            {
+                background: repeating-linear-gradient(
+                    90deg,
+                    #999 0px,
+                    #555 16px,
+                    #999 32px);
+            }
+
+            .container
+            {
+                position: relative;
+                left: 128px;
+                top: 128px;
+
+                width: 128px;
+                height: 128px;
+                overflow: hidden;
+                padding: 32px;
+   
+                mask:
+                    linear-gradient(#000, #000) content-box exclude,
+                    linear-gradient(#000, #000);
+
+                backdrop-filter: blur(32px);
+            }
+            
+            .hole
+            {
+                width: 128px;
+                height: 128px;
+                outline: 100px solid #0008;
+                border-radius: 32px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="hole"></div>
+        </div>
+
+    </body>
+</html>
